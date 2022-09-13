@@ -14,9 +14,7 @@ const Container = styled.View`
   align-items: center;
   padding: 0 20px;
 `;
-/*const LOGO =
-  'https://firebasestorage.googleapis.com/v0/b/react-native-simple-chat-214af.appspot.com/o/photo.png?alt=media';
-*/
+
 const Profile = () => {
   const { spinner } = useContext(ProgressContext);
   const { setUser } = useContext(UserContext);
@@ -40,7 +38,7 @@ const Profile = () => {
   return (
     <Container>
       <Image showButton url={photo} onChangePhoto={_handlePhotoChange} />
-      <Input label="Name" value={user.name} disabled />
+      <Input label="Name" value={user.name} disabled/>
       <Input label="Email" value={user.email} disabled />
       <Button
         title="Sign out"
@@ -56,6 +54,7 @@ const Profile = () => {
         }}
         containerStyle={{
           backgroundColor: theme.btnSignout,
+          marginTop:30,
         }}
       />
     </Container>

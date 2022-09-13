@@ -1,25 +1,27 @@
 const Colors = {
   white: '#ffffff',
   black: '#111111',
-  main: '#3679fe',
+  main: '#778bdd',
   grey_0: '#d5d5d5',
   grey_1: '#a6a6a6',
   red: '#e84118',
 };
 
 export const theme = {
-  background: Colors.white,
-  text: Colors.black,
+  background: "#d4e6ff",
+  text: "#778bdd",
   errorText: Colors.red,
-
+  done: "#d4e6ff",
+  main: Colors.main,
+  itemBackground: Colors.white,
   // Button
   btnBackground: Colors.main,
   btnTitle: Colors.white,
   btnTextLink: Colors.main,
-  btnSignout: Colors.red,
+  btnSignout: Colors.main,
 
-  // Image
-  imgBackground: Colors.grey_0,
+  // 프로필 사진 선택
+  imgBackground: Colors.white,
   imgBtnBackground: Colors.grey_1,
   imgBtnIcon: Colors.white,
 
@@ -28,15 +30,15 @@ export const theme = {
   inputLabel: Colors.grey_1,
   inputPlaceholder: Colors.grey_1,
   inputBorder: Colors.grey_1,
-  inputDisabled: Colors.grey_0,
+  inputDisabled: Colors.white,
 
   // Spinner
   spinnerBackground: Colors.black,
   spinnerIndicator: Colors.white,
 
   //Tab
-  tabBtnActive: Colors.main,
-  tabBtnInactive: Colors.grey_1,
+  tabBarActiveTintColor: Colors.white,
+  tabBarInactiveTintColor: Colors.main,
 
   // List - Item
   itemBorder: Colors.grey_0,

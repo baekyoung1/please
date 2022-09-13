@@ -78,7 +78,7 @@ Input.defaultProps = {
 };
 
 Input.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChangeText: PropTypes.func,
   onSubmitEditing: PropTypes.func,

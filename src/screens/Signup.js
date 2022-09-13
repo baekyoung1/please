@@ -1,28 +1,25 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
 import styled from 'styled-components/native';
-import { Button, Image, Input, ErrorMessage } from '../components';
+import { Button,  Input, ErrorMessage } from '../components';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { signup } from '../firebase';
 import { Alert } from 'react-native';
 import { validateEmail, removeWhitespace } from '../utils';
 import { UserContext, ProgressContext } from '../contexts';
 
-const Container = styled.View`
-  flex: 1;
+const Container = styled.View`   
+  flex:1;
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.background};
-  padding: 50px 20px;
+  padding: 300px 30px;
 `;
-
-const DEFAULT_PHOTO =
-  'https://firebasestorage.googleapis.com/v0/b/rn-chat-aba36.appspot.com/o/face.png?alt=media';
+//flex:1;
 
 const Signup = ({ navigation }) => {
   const { setUser } = useContext(UserContext);
   const { spinner } = useContext(ProgressContext);
 
-  const [photo, setPhoto] = useState(DEFAULT_PHOTO);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -61,12 +58,12 @@ const Signup = ({ navigation }) => {
     } else {
       refDidMount.current = true;
     }
-  }, [email, name, passwordConfirm, password]);
+  }, [ name, email, passwordConfirm, password]);
 
   const _handleSignupBtnPress = async () => {
     try {
       spinner.start();
-      const user = await signup({ name, email, password, photo });
+      const user = await signup({ name, email, password });
       setUser(user);
     } catch (e) {
       Alert.alert('Signup Error', e.message);
@@ -78,15 +75,14 @@ const Signup = ({ navigation }) => {
   return (
     <KeyboardAwareScrollView extraScrollHeight={20}>
       <Container>
-        <Image showButton={true} url={photo} onChangePhoto={setPhoto} />
         <Input
           label="Name"
           placeholder="Name"
           returnKeyType="next"
           value={name}
-          onChangeText={setName}
-          onSubmitEditing={() => refEmail.current.focus()}
-          onBlur={() => setName(name.trim())}
+          onChangeText={text=>setName(text)}
+          onSubmitEditing={() => {setName(name.trim()); refEmail.current.focus()}}
+          onBlur={() => setName(removeWhitespace(name))}
           maxLength={12}
         />
         <Input

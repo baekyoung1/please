@@ -30,7 +30,7 @@ const PhotoButton = ({ onPress }) => {
 };
 
 const Container = styled.View`
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `;
 const ProfileImage = styled.Image`
   background-color: ${({ theme }) => theme.imgBackground};
